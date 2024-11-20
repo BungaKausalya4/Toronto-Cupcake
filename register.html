@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+   <link rel="icon" href="assets/img/logo.png">
+
+   <title>Register - Bedimcode</title>
+</head>
+<body>
+   <!-- Navbar Section -->
+   <header>
+      <nav class="navbar">
+         <div class="navbar__container">
+            <!-- Logo -->
+            <a href="#" class="navbar__logo">
+               <img src="assets/img/logo.png" alt="Logo">
+            </a>
+            <!-- Menu Items -->
+            <ul class="navbar__menu">
+               <li><a href="#">Cupcakes</a></li>
+               <li><a href="#">Events</a></li>
+               <li><a href="#">FAQs</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Contact Us</a></li>
+            </ul>
+            <!-- Search and Icons -->
+            <div class="navbar__icons">
+               <div class="navbar__search">
+                  <input type="text" placeholder="Search...">
+                  <i class="ri-search-line"></i>
+               </div>
+               
+               <!-- Ubah div menjadi a agar bisa bernavigasi ke halaman login -->
+               <a href="index.html" class="navbar__login">Sign In</a>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <!-- Registration Form Section -->
+   <div class="register">
+      <img src="assets/img/login.jpg" alt="register image" class="register__img">
+
+      <form action="" class="register__form" id="register-form">
+         <h1 class="register__title">SIGN UP</h1>
+
+         <div class="register__content">
+            <!-- Name Input -->
+            <div class="register__box">
+               <i class="ri-user-3-line register__icon"></i>
+
+               <div class="register__box-input">
+                  <input type="text" required class="register__input" id="register-name" placeholder=" ">
+                  <label for="register-name" class="register__label">Name</label>
+               </div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="register__box">
+               <i class="ri-mail-line register__icon"></i>
+
+               <div class="register__box-input">
+                  <input type="email" required class="register__input" id="register-email" placeholder=" ">
+                  <label for="register-email" class="register__label">Email</label>
+               </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="register__box">
+               <i class="ri-lock-2-line register__icon"></i>
+
+               <div class="register__box-input">
+                  <input type="password" required class="register__input" id="register-pass" placeholder=" ">
+                  <label for="register-pass" class="register__label">Password</label>
+                  <i class="ri-eye-off-line register__eye" id="register-eye"></i>
+               </div>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="register__box">
+               <i class="ri-lock-line register__icon"></i>
+
+               <div class="register__box-input">
+                  <input type="password" required class="register__input" id="confirm-pass" placeholder=" ">
+                  <label for="confirm-pass" class="register__label">Confirm Password</label>
+                  <i class="ri-eye-off-line register__eye" id="confirm-eye"></i>
+               </div>
+            </div>
+         </div>
+
+         <!-- Checkbox for Terms and Conditions -->
+         <div class="register__check">
+            <div class="register__check-group">
+               <input type="checkbox" class="register__check-input" id="register-check">
+               <label for="register-check" class="register__check-label">I agree to the Terms & Conditions</label>
+            </div>
+         </div>
+
+         <!-- Submit Button -->
+         <button type="submit" class="register__button">SIGN UP</button>
+
+         <!-- Already have an account? -->
+         <p class="register__login">
+            Already have an account? <a href="index.html">Sign In</a>
+         </p>
+      </form>
+   </div>
+
+   <!--=============== MAIN JS ===============-->
+   <script>
+      // Toggle password visibility
+      const togglePassword = document.querySelector("#register-eye");
+      const passwordField = document.querySelector("#register-pass");
+
+      togglePassword.addEventListener("click", function () {
+         const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+         passwordField.setAttribute("type", type);
+         this.classList.toggle("ri-eye-off-line");
+         this.classList.toggle("ri-eye-line");
+      });
+
+      // Toggle confirm password visibility
+      const toggleConfirmPassword = document.querySelector("#confirm-eye");
+      const confirmPasswordField = document.querySelector("#confirm-pass");
+
+      toggleConfirmPassword.addEventListener("click", function () {
+         const type = confirmPasswordField.getAttribute("type") === "password" ? "text" : "password";
+         confirmPasswordField.setAttribute("type", type);
+         this.classList.toggle("ri-eye-off-line");
+         this.classList.toggle("ri-eye-line");
+      });
+   </script>
+</body>
+</html>

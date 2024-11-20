@@ -1,0 +1,1191 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: hsl(0, 0%, 100%);
+  --black-color: hsl(0, 0%, 0%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Milky Vintage", "Poppins", sans-serif;
+  --h1-font-size: 1.75rem;
+  --normal-font-size: 1rem;
+  --small-font-size: .813rem;
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+body {
+  color: var(--white-color);
+  font-family: 'Poppins', sans-serif, milk;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navbar styles */
+/* Bayangan pada navbar */
+/* Navbar Section */
+
+/* Smooth transition when scrolling */
+.navbar {
+  background-color: #fff5f0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Tambahkan transform untuk animasi halus */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  opacity: 0; /* Mulai dengan transparansi untuk efek fade-in */
+  transform: translateY(-100px); /* Mulai dari posisi di luar layar */
+  animation: fadeInNav 1s forwards; /* Efek fade-in ketika halaman dimuat */
+}
+
+/* Efek scroll */
+.navbar-scrolled {
+  background-color: #ff7c97;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Animasi fade-in ketika halaman dimuat */
+@keyframes fadeInNav {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); /* Navbar dimulai dari atas layar */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Navbar kembali ke posisi normal */
+  }
+}
+
+/* Menu item hover animation */
+.navbar__menu li a:hover {
+  transform: scale(1.2);
+  color: #FF7C97;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Logo hover animation */
+.navbar__logo img:hover {
+  animation: rotateLogo 1s ease-in-out;
+}
+
+/* Search Input Animation */
+.navbar__search input {
+  padding: 8px 30px 8px 15px;
+  border: 1px solid #d9534f;
+  border-radius: 25px;
+  outline: none;
+  color: #d9534f;
+  font-size: 16px;
+  transition: all 0.3s ease; /* Tambahkan animasi smooth */
+}
+
+/* Efek fokus pada input */
+.navbar__search input:focus {
+  border-color: #ff7c97;
+  box-shadow: 0 0 10px rgba(255, 124, 151, 0.5); /* Tambahkan bayangan saat fokus */
+}
+
+/* Efek hover pada ikon search */
+.navbar__search i:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Dropdown (Jika ada) */
+@media (max-width: 768px) {
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff5f0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Menu saat dibuka */
+  .navbar__menu.active {
+    display: flex;
+    animation: slideDown 0.5s ease;
+  }
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+.navbar {
+  background-color: #fff5f0;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan saat posisi normal */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: fixed; /* Agar tetap di atas ketika di-scroll */
+  width: 100%; /* Agar navbar menyesuaikan lebar layar */
+  top: 0;
+  z-index: 1000;
+  
+}
+
+/* Menambahkan bayangan lebih jelas saat di-scroll */
+/* Gaya tambahan untuk navbar ketika di-scroll */
+.navbar-scrolled {
+  background-color: #ff7c97; /* Ganti dengan warna yang Anda inginkan */
+  transition: background-color 0.3s ease; /* Animasi smooth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan saat di-scroll */
+}
+
+
+/* Menu item di navbar */
+.navbar__menu li a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  padding: 10px 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Saat kursor berada di atas menu, ukurannya membesar */
+.navbar__menu li a:hover {
+  transform: scale(1.2); /* Membesarkan menu item */
+  color: #FF7C97;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Definisi animasi rotasi */
+@keyframes rotateLogo {
+  from {
+    transform: rotate(0deg); /* Mulai dari rotasi 0 derajat */
+  }
+  to {
+    transform: rotate(360deg); /* Berputar penuh 360 derajat */
+  }
+}
+
+/* Logo Navbar */
+.navbar__logo img {
+  width: 60px;
+  transition: transform 0.5s ease; /* Transisi smooth */
+}
+
+/* Animasi saat logo di-hover */
+.navbar__logo img:hover {
+  animation: rotateLogo 1s ease-in-out; /* Logo berputar 1 detik penuh */
+}
+
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar__menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__icons i {
+  font-size: 24px;
+  color: #d9534f;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.navbar__icons i:hover {
+  color: #FF7C97; /* Warna berubah menjadi pink cerah saat disentuh */
+  transform: scale(1.2); /* Ikon sedikit membesar */
+}
+
+/* Untuk efek pada seluruh elemen navbar dengan ikon (notifikasi, cart, user) */
+.navbar__notification:hover,
+.navbar__cart:hover,
+.navbar__profile:hover {
+  color: #FF7C97; /* Warna ikon berubah ketika disentuh */
+  transform: scale(1.2); /* Sedikit membesar */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transisi halus */
+}
+
+/* Anda juga bisa menambahkan efek animasi tambahan pada perubahan warna latar (background) */
+.navbar__notification:hover,
+.navbar__cart:hover,
+.navbar__profile:hover {
+  background-color: rgba(255, 124, 151, 0.2); /* Latar belakang berubah warna saat di-hover */
+  border-radius: 50%; /* Menjadikan background melingkar */
+  padding: 5px; /* Menambahkan padding agar area klik lebih besar */
+  transition: background-color 0.3s ease; /* Animasi background */
+}
+/* Search input styling */
+.navbar__search {
+  position: relative;
+}
+
+.navbar__search input {
+  padding: 8px 30px 8px 15px;
+  border: 1px solid #d9534f;
+  border-radius: 25px;
+  outline: none;
+  color: #d9534f;
+  font-size: 16px;
+}
+
+.navbar__search i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #d9534f;
+  cursor: pointer;
+}
+
+
+/*=============== REGISTER ===============*/
+body {
+  overflow-y: auto; /* Enable scrolling */
+  padding-top: 80px; /* Avoid navbar overlap */
+}
+
+/* Register section */
+.register {
+  position: relative;
+  min-height: 100vh; /* Allows the section to grow beyond the viewport if needed */
+  display: grid;
+  align-items: center;
+}
+/* Style untuk kotak Login */
+.navbar__register {
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar__register:hover {
+  background-color: #c0392b;
+  transform: scale(1.1); /* Membesarkan sedikit tombol */
+}
+
+.register__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.register__form {
+  position: relative;
+  background-color: hsla(0, 0%, 10%, 0.25);
+  border: 2px solid var(--white-color);
+  margin-inline: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+.register__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 2rem;
+}
+.register__content, .register__box {
+  display: grid;
+}
+.register__content {
+  row-gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.register__box {
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  border-bottom: 2px solid var(--white-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.register__box:hover {
+  transform: translateY(-3px); /* Membuat input box "naik" sedikit */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan halus */
+}
+.register__icon, .register__eye {
+  font-size: 1.25rem;
+}
+.register__input {
+  width: 100%;
+  padding-block: 0.8rem;
+  background: none;
+  color: var(--white-color);
+  position: relative;
+  z-index: 1;
+}
+.register__box-input {
+  position: relative;
+}
+.register__label {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-weight: var(--font-medium);
+  transition: top 0.3s, font-size 0.3s;
+}
+.register__eye {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.register__eye:hover {
+  transform: scale(1.2); /* Membesarkan ikon eye sedikit saat di hover */
+}
+.register__box:nth-child(3) input {
+  padding-right: 1.8rem;
+}
+.register__check, .register__check-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.register__check {
+  margin-bottom: 1.5rem;
+}
+.register__check-label, .register__login {
+  font-size: var(--small-font-size);
+}
+.register__check-group {
+  column-gap: 0.5rem;
+}
+.register__check-input {
+  width: 16px;
+  height: 16px;
+}
+.register__button {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: var(--white-color); /* Warna default tombol */
+  color: #F46A8B; /* Warna teks tombol */
+  font-weight: var(--font-medium);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.register__button:hover {
+  background-color: #F46A8B; /* Warna latar saat di-hover */
+  color: white; /* Warna teks saat di-hover */
+  transform: translateY(-5px); /* Efek "naik" */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.register__login {
+  text-align: center;
+}
+.register__login a {
+  color: #F46A8B;
+  font-weight: var(--font-medium);
+}
+.register__login a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus move up label */
+.register__input:focus + .register__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/* Input focus sticky top label */
+.register__input:not(:placeholder-shown).register__input:not(:focus) + .register__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .register {
+    justify-content: center;
+  }
+  .register__form {
+    width: 432px;
+    padding: 4rem 3rem 3.5rem;
+    border-radius: 1.5rem;
+  }
+  .register__title {
+    font-size: 2rem;
+  }
+}
+
+
+/*=============== LOGIN ===============*/
+.login {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+.login__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.login__form {
+  position: relative;
+  background-color: hsla(0, 0%, 10%, 0.25);
+  border: 2px solid var(--white-color);
+  margin-inline: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+.login__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 2rem;
+}
+.login__content, .login__box {
+  display: grid;
+}
+.login__content {
+  row-gap: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.login__box {
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  border-bottom: 2px solid var(--white-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login__box:hover {
+  transform: translateY(-3px); /* Membuat input box "naik" sedikit */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan halus */
+}
+.login__icon, .login__eye {
+  font-size: 1.25rem;
+}
+.login__input {
+  width: 100%;
+  padding-block: 0.8rem;
+  background: none;
+  color: var(--white-color);
+  position: relative;
+  z-index: 1;
+}
+.login__box-input {
+  position: relative;
+}
+.login__label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-weight: var(--font-medium);
+  transition: top 0.3s, font-size 0.3s;
+}
+.login__eye {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  z-index: 10;
+  cursor: pointer;
+}
+.login__eye {
+  position: absolute;
+  right: 0;
+  top: 18px;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.login__eye:hover {
+  transform: scale(1.2); /* Membesarkan ikon eye sedikit saat di hover */
+}
+.login__box:nth-child(2) input {
+  padding-right: 1.8rem;
+}
+.login__check, .login__check-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login__check {
+  margin-bottom: 1.5rem;
+}
+.login__check-label, .login__forgot, .login__register {
+  font-size: var(--small-font-size);
+}
+.login__check-group {
+  column-gap: 0.5rem;
+}
+.login__check-input {
+  width: 16px;
+  height: 16px;
+}
+.login__forgot {
+  color: var(--white-color);
+}
+.login__forgot:hover {
+  text-decoration: underline;
+}
+.login__button {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: var(--white-color); /* Warna default tombol */
+  color: #F46A8B; /* Warna teks tombol */
+  font-weight: var(--font-medium);
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login__button:hover {
+  background-color: #F46A8B; /* Warna latar saat di-hover */
+  color: white; /* Warna teks saat di-hover */
+  transform: translateY(-5px); /* Efek "naik" */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+.login__register {
+  text-align: center;
+}
+.login__register a {
+  color: #F46A8B;
+  font-weight: var(--font-medium);
+}
+.login__register a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus move up label */
+.login__input:focus + .login__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+/* Style untuk kotak Login */
+.navbar__login {
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar__login:hover {
+  background-color: #c0392b;
+  transform: scale(1.1); /* Membesarkan sedikit tombol */
+}
+
+/* Input focus sticky top label */
+.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
+  top: -12px;
+  font-size: var(--small-font-size);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .login {
+    justify-content: center;
+  }
+  .login__form {
+    width: 432px;
+    padding: 4rem 3rem 3.5rem;
+    border-radius: 1.5rem;
+  }
+  .login__title {
+    font-size: 2rem;
+  }
+}
+
+/* Landing page styling */
+
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #FFE6D1, #FFE3F0), 
+              url('assets/img/drip.png') no-repeat bottom center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.landing__content {
+  max-width: 50%;
+}
+
+.landing__welcome {
+  color: #000; /* Warna hitam untuk "Welcome to" */
+}
+
+.landing__toronto {
+  color: #F46A8B; /* Warna pink untuk "Toronto Cupcake!" */
+}
+
+.landing__title {
+  font-family: 'Milky Vintage', sans-serif;
+  font-size: 7rem;
+  color: #F46A8B;
+  margin-bottom: 1.5rem;
+  font-weight: var(--font-medium);
+}
+
+.landing__description {
+  font-size: 1.2rem; /* Ukuran lebih kecil dari judul */
+  font-family: sans-serif; /* Font yang menggunakan sans-serif */
+  color: #333; /* Warna teks opsional */
+  margin-bottom: 3rem;
+}
+
+.landing__button {
+  display: inline-flex; /* Ganti inline-block dengan inline-flex */
+  align-items: center; 
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background-color: #DD395E;
+  color: #FFE6D1;
+  font-size: 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Milky Vintage';
+}
+
+.landing__button i {
+  margin-left: 5px;
+}
+/* Efek hover untuk tombol */
+.landing__button:hover {
+  transform: scale(1.05); /* Membesarkan sedikit */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Menambahkan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.landing__image img {
+  max-width: 100%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px); /* Naik sedikit */
+  }
+  100% {
+    transform: translateY(0); /* Kembali ke posisi awal */
+  }
+}
+/* Why Choose Section */
+.why-choose-title {
+  font-family: 'Milky Vintage', sans-serif;
+  font-size: 7rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: var(--font-medium);
+}
+
+.why-choose__why {
+  color: #000; /* Warna hitam untuk "Why Choose" */
+}
+
+.why-choose__toronto {
+  color: #F46A8B; /* Warna pink untuk "Toronto Cupcake" */
+}
+
+.why-choose-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 3rem;
+}
+
+.why-choose-card {
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff5f0; /* Background warna lembut */
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.why-choose-card img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+  
+}
+
+.why-choose-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.why-choose-card:hover img {
+  transform: rotate(10deg) scale(1.1); /* Memutar dan memperbesar gambar saat di-hover */
+}
+.why-choose-card:hover h3 {
+  color: #DD395E; /* Mengubah warna judul saat di-hover */
+  transform: scale(1.1); /* Memperbesar sedikit judul saat di-hover */
+}
+.why-choose-card p {
+  font-size: 1rem;
+  color: #333;
+}
+.why-choose-card:hover {
+  background-color: #f4c1c1; /* Warna background yang berbeda saat di-hover */
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat di-hover */
+  transform: translateY(-10px); /* Kartu naik sedikit ke atas */
+}
+
+.why-choose-info {
+  margin-bottom: 7rem; /* Tambahkan jarak di bawah section Why Choose */
+}
+
+/* One Dozen One Click Section */
+.one-dozen {
+  background-image: url('/assets/img/splashnew.png');
+  background-size: cover; /* or cover if you want it to fill */
+  background-repeat: no-repeat; /* Avoid repeating the image */
+  background-position: center top; /* Adjust to fit the top part */ /* Gambar akan diposisikan lebih ke bawah */
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-top: 10rem;
+}
+
+.one-dozen__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.one-dozen__content {
+  flex: 1;
+  text-align: left;
+  padding-top: 5rem;
+  
+}
+
+.one-dozen__title {
+  font-size: 3rem;
+  color: #333;
+  font-family: 'Milky Vintage', sans-serif;
+  font-size: 5rem;
+}
+
+.one-dozen__main {
+  font-weight: var(--font-medium);
+  color: #000;
+  
+}
+
+.one-dozen__highlight {
+  color: #F46A8B;
+  font-weight: var(--font-medium);
+}
+
+.one-dozen__description {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.one-dozen__price {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: #B33951;
+}
+
+.one-dozen__button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  background-color: #FFF7E5;
+  color: #9A162E;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan pada tombol */
+  cursor: pointer; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.one-dozen__button:hover {
+  background-color: #9A162E; /* Mengubah warna latar tombol saat disentuh */
+  color: #FFF7E5; /* Warna teks berubah menjadi putih saat disentuh */
+  cursor: pointer;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);  /* Menunjukkan interaksi klik dengan pointer */
+}
+
+.one-dozen__image {
+  flex: 1;
+  position: relative;
+}
+
+.one-dozen__image img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.one-dozen__image:hover img {
+  transform: scale(1.1); /* Zoom gambar saat di-hover */
+}
+.one-dozen__overlay-image {
+  position: absolute; /* Gambar baru diletakkan absolut */
+  top: -30px; /* Sesuaikan posisi vertikal untuk menempatkan gambar di atas */
+  left: 50%; /* Posisikan gambar di tengah */
+  transform: translateX(-50%); /* Pastikan gambar tetap di tengah */
+  width: 50px; /* Ukuran gambar lebih kecil, sesuaikan jika perlu */
+  height: auto;
+}
+
+.save {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background-color: #F46A8B;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+.save-animation {
+  position: absolute;
+  top: 2000px; /* Sesuaikan nilai ini untuk posisi lebih ke bawah */
+  right: 60px; /* Tambah jarak dari kanan jika perlu */
+  z-index: 10;
+}
+.save-animation img {
+  width: 200px; /* Sesuaikan ukuran lebih kecil */
+  height: auto; /* Pertahankan rasio aspek gambar */
+}
+
+
+
+/* Join Our Newsletter Section */
+.newsletter {
+   /* Light pink background */
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+  
+  
+}
+
+.newsletter h2 {
+  font-size: 5rem;
+  font-family: 'Milky Vintage', sans-serif;
+  color: black;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s ease forwards;
+  
+  font-weight: var(--font-medium);
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.newsletter h2 span {
+  color: #F46A8B; /* Pink color for "Newsletter" */
+}
+
+.newsletter__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletter__form input {
+  padding: 15px; /* Increased padding for a larger input field */
+  width: 400px; /* Increased width for the input field */
+  border: 2px solid #F46A8B;
+  border-radius: 5px;
+  font-size: 1.2rem; /* Increased font size */
+  color: #F46A8B;
+  font-family: 'sans-serif';
+  position: relative;
+}
+.newsletter__form input::placeholder {
+  color: #F46A8B;
+  opacity: 1;
+  transform-origin: left;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.newsletter__form input:focus::placeholder {
+  transform: translateY(-20px) scale(0.8); /* Placeholder mengambang saat fokus */
+  opacity: 0.7;
+}
+.newsletter__form button {
+  background-color: #F46A8B;
+  color: white;
+  padding: 15px 25px; /* Increased padding for a larger button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem; /* Increased font size */
+  font-family: 'sans-serif';
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter__form button:hover {
+  background-color: #ff457d;
+  transform: scale(1.05); /* Sedikit membesarkan tombol saat di-hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);  /* Slightly darker pink on hover */
+}
+
+.newsletter__form input:focus {
+  border-color: #ff457d; /* Mengubah warna border saat fokus */
+  box-shadow: 0 0 10px rgba(244, 106, 139, 0.5); /* Menambahkan efek cahaya */
+  outline: none;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Footer Section */
+.footer {
+  background-image: url('/assets/img/footer.png');
+  background-size: cover;
+  background-position: center 20%;
+  padding: 50px 0;
+  color: #fff;
+  text-align: center;
+  animation: zoomInBg 15s ease-in-out infinite;
+}
+
+@keyframes zoomInBg {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 150%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  padding-top: 100px; /* Menambah jarak isi dari bagian atas */
+}
+
+/* Footer Section */
+.footer__title {
+  font-family: 'Milky Vintage', sans-serif;
+  color: #000;
+  font-size: 3.5rem;
+  font-weight: var(--font-medium);
+  margin-bottom: 10px;
+  margin-top: 200px; /* Menambah jarak dari atas jika diperlukan */
+}
+
+.footer__description {
+  color: #000;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  margin-top: 30px; /* Menambah jarak dari atas */
+}
+
+.footer__button {
+  background: linear-gradient(to right, #DD395E, #FF8EA5);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: var(--font-medium);
+  text-decoration: none;
+  font-family: 'sans-serif';
+  transition: background-color 0.3s, box-shadow 0.3s ease;
+}
+
+.footer__button:hover {
+  background: linear-gradient(to right, #FF8EA5, #DD395E);
+  box-shadow: 0px 4px 15px rgba(255, 142, 165, 0.6); /* Tambahkan glow */
+}
+
+
+.footer__links {
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #DD395E;
+}
+
+.footer__links a {
+  margin: 0 10px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  position: relative;
+}
+
+.footer__links a:hover {
+  color: #DD395E;
+}
+
+.footer__links a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #DD395E;
+  transition: width 0.3s ease;
+}
+
+.footer__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #DD395E;
+  transition: width 0.3s ease;
+}
+
+.footer__socials {
+  margin-top: 20px;
+}
+
+.footer__socials a {
+  font-size: 1.5rem;
+  margin: 0 15px;
+  color: #000000;
+  transition: color 0.3s, transform 0.3s ease;
+  position: relative;
+  animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Bergerak sedikit ke atas */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.footer__socials a:hover {
+  color: #DD395E;
+  transform: scale(1.2); /* Sedikit memperbesar ikon saat hover */
+}
+.footer__copyright {
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: #000000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
